@@ -1,6 +1,5 @@
 const express = require("express");
-const db = require("./db");
-// const Post = require("./post/model"); //dont need to import db because model imports db!
+const Image = require("./image/model"); //dont need to import db because model imports db!
 // const postRouter = require("./post/router");
 const app = express();
 const port = process.env.PORT || 4000;
