@@ -1,13 +1,13 @@
 const express = require("express");
 const Image = require("./image/model"); //dont need to import db because model imports db!
-// const postRouter = require("./post/router");
+const imageRouter = require("./image/router");
 const app = express();
 const port = process.env.PORT || 4000;
 
 const parser = express.json(); //dont need to install body parser.
 app.use(parser); //parser needs to be before ROUTER!
+app.use(imageRouter);
 
-// app.use(postRouter);
 app.get("/data", (request, response) => {
   response.send("SOME DAta");
 });

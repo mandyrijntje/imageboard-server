@@ -1,14 +1,13 @@
-// const exoress
-// const Post
+const express = require("express");
+const Image = require("./model");
+const router = express.Router(); //getting router from express and assigning to var
 
-// const router = express.Router()//getting router from express and assigning to var
-
-// async function getPosts(request, response, next){try{const posts = await Post.findAll()
-// response.send(posts)
-// }catch(error){next(error)}}
-
-// router.get('/post', getPosts)
+router.get("/images", (req, res, next) => {
+  Image.findAll()
+    .then(list => res.json(list))
+    .catch(next);
+});
 
 // router.post('/post', async (request, response, next)=>{try{const post = await Post.create({text: request.body.text})response.send(post)}catch(error){next(error)}})
 
-// module.exports = router
+module.exports = router;
