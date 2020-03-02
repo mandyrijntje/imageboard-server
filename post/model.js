@@ -1,8 +1,8 @@
-const Sq
-const db 
+// const Sq
+// const db
 
-const Post
+// const Post
 
-STRING
+// STRING
 
-module.exports = Post
+// module.exports = Post
