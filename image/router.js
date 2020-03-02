@@ -8,6 +8,13 @@ router.get("/images", (req, res, next) => {
     .catch(next);
 });
 
-// router.post('/post', async (request, response, next)=>{try{const post = await Post.create({text: request.body.text})response.send(post)}catch(error){next(error)}})
+router.post("/images", (req, res, next) => {
+  console.log(req.body);
+  Image.create(req.body)
+    .then(image => {
+      res.json(image);
+    })
 
+    .catch(next);
+});
 module.exports = router;
