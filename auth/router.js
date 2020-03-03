@@ -13,7 +13,9 @@ router.get("/secret-endpoint", auth, (req, res) => {
 
 router.post("/login", (req, res) => {
   const email = req.body.email;
+  console.log("E", req.body.email);
   const password = req.body.password;
+  console.log("E", req.body.password);
   if (!email || !password) {
     res.status(400).send({
       message: "Please supply a valid email and password"
