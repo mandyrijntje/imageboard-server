@@ -3,6 +3,33 @@ const User = require("./model");
 const bcrypt = require("bcrypt");
 const router = new Router();
 
+async function getUsers(req, res, next) {
+  try {
+    const fetchedUsers = await User.findAll();
+    res.json(fetchedUsers);
+  } catch (error) {
+    next(error);
+  }
+}
+
+router.get("/users", getUsers);
+
+async function getUserById(req, res, next) {
+  console.log("req.params.id :", typeof req.params.id);
+  try {
+    const fetchedUser = await Event.findByPk(req.params.id);
+    if (!fetchedUser) {
+      res.status(404).end();
+    } else {
+      res.json(fetchedUser);
+    }
+  } catch (error) {
+    next(error);
+  }
+}
+
+router.get("/users/:id", getUserById);
+
 router.post("/users", (req, res, next) => {
   const userCredentials = {
     email: req.body.email,
