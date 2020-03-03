@@ -1,5 +1,5 @@
 const express = require("express");
-const auth = require("../auth/middleware");
+// const auth = require("../auth/middleware");
 const Image = require("./model");
 const router = express.Router(); //getting router from express and assigning to var
 
@@ -9,7 +9,7 @@ router.get("/images", (req, res, next) => {
     .catch(next);
 });
 
-router.post("/images", auth, (req, res, next) => {
+router.post("/images", (req, res, next) => {
   console.log(req.body);
   Image.create(req.body)
     .then(image => {
