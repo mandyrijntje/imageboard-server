@@ -17,7 +17,7 @@ router.get("/users", getUsers);
 async function getUserById(req, res, next) {
   console.log("req.params.id :", typeof req.params.id);
   try {
-    const fetchedUser = await Event.findByPk(req.params.id);
+    const fetchedUser = await User.findByPk(req.params.id);
     if (!fetchedUser) {
       res.status(404).end();
     } else {
